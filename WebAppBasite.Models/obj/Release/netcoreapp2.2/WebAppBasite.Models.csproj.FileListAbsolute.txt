@@ -1,0 +1,9 @@
+D:\Working\WebCore\WebAppBasite\WebAppBasite.Models\bin\Release\netcoreapp2.2\WebAppBasite.Models.deps.json
+D:\Working\WebCore\WebAppBasite\WebAppBasite.Models\bin\Release\netcoreapp2.2\WebAppBasite.Models.dll
+D:\Working\WebCore\WebAppBasite\WebAppBasite.Models\bin\Release\netcoreapp2.2\WebAppBasite.Models.pdb
+D:\Working\WebCore\WebAppBasite\WebAppBasite.Models\obj\Release\netcoreapp2.2\WebAppBasite.Models.csprojAssemblyReference.cache
+D:\Working\WebCore\WebAppBasite\WebAppBasite.Models\obj\Release\netcoreapp2.2\WebAppBasite.Models.csproj.CoreCompileInputs.cache
+D:\Working\WebCore\WebAppBasite\WebAppBasite.Models\obj\Release\netcoreapp2.2\WebAppBasite.Models.AssemblyInfoInputs.cache
+D:\Working\WebCore\WebAppBasite\WebAppBasite.Models\obj\Release\netcoreapp2.2\WebAppBasite.Models.AssemblyInfo.cs
+D:\Working\WebCore\WebAppBasite\WebAppBasite.Models\obj\Release\netcoreapp2.2\WebAppBasite.Models.dll
+D:\Working\WebCore\WebAppBasite\WebAppBasite.Models\obj\Release\netcoreapp2.2\WebAppBasite.Models.pdb
