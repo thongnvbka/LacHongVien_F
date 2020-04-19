@@ -1,0 +1,638 @@
+﻿@model WebAppBasite.Models.ViewModel.HomeViewModels
+<div id="phim" class="pr">
+    <div class="pb169 pr oh">
+        <div class="bgcd ol">
+            <video style="object-fit:fill;width:100%" autoplay="" controls="" loop=""
+                   muted="" playsinline="" src="upload/video1-banner.mp4" type="video/mp4"></video>
+        </div>
+    </div>
+</div>
+<div class=" mlra plr15 w90">
+    <div class=" bgcfx grid  plr15 ptb50 mt25">
+        <div class="grid pl35 pt25 w60">
+            <div class="w35 bg1 pr z1 bóng" style="transform:scale(1.2,1.8)">
+                <div class="pb43 w1">
+                    <div class="pai tl50 tt w80" style="font-variant: petite-caps;">
+                        <div class="tal fsi cf fs15">'Lạc Hồng Viên</div>
+                        <div class="tar mt10 fsi cf fs13">Trọn Một Chữ Tình'</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w50 bss bcf bw2 bra3 bóng z7" style="transform:scale(0.9,1.1)">
+                <div class="pb43 w1"
+                     style="background-image: url(&quot;img/anh5.jpg&quot;);"></div>
+            </div>
+            <div class="w40 bss bcf bw2 bra3 bóng z5" style="transform:scale(.9,1.2)">
+                <div class="pb43 w1"
+                     style="background-image: url(&quot;img/anh6.jpg&quot;)"></div>
+            </div>
+            <div class="w35 bss bcf bw2 bra3 bóng z7" style="transform:scale(1.2,1.1)">
+                <div class="pb43 w1"
+                     style="background-image: url(&quot;img/anh7.jpg&quot;);"></div>
+            </div>
+        </div>
+        <div class="vat  w40 ml-4" style="text-align:justify">
+            <div class=" mt25 mb35 grid ">
+                <a href="https://lachongvien.vn/c/4593/Gioi-thieu"
+                   class="fs2 mc1 lh1 bấmĐc ttu">Giới thiệu</a>
+            </div>
+            <div class="fs12 fs09-xs c6 mt15 lờiđầu" id="46930">
+                <ul>
+                    <li style="text-align: justify; line-height: 1.5;">
+                        Tọa lạc trên khuôn viên 9 quả đồi
+                        rộng 98 hécta tại huyện Kỳ Sơn – tỉnh Hòa Bình, ngay sát trục đường Quốc lộ 6 cách
+                        trung tâm Hà Nội 52 km và cách Thành phố Hòa Bình 20km, Lạc Hồng Viên – Kỳ Sơn với
+                        Sơn Thủy hữu tình là một vị trí Đắc địa để làm một Công viên Nghĩa trang.
+                    </li>
+                    <li style="text-align: justify; line-height: 1.5;">
+                        Được chọn lựa rất kỹ dựa trên những
+                        phân tích tâm linh và khoa học của các Nhà Phong Thủy, Địa lý Việt Nam, Đài Loan và
+                        Trung Quốc.
+                    </li>
+                    <li style="text-align: justify; line-height: 1.5;">
+                        Công viên nghĩa trang Lạc Hồng Viên
+                        nằm trên vị trí hội tụ đủ Tứ Linh: Long – Ly – Quy – Phượng, 9 quả đồi mang hình
+                        dáng một con rùa khổng lồ đang bơi cùng 9 con suối tự nhiên tượng trưng cho một đời
+                        người khi trở về nơi 9 suối. Công viên nghĩa trang Lạc Hồng Viên có thế Long Chầu –
+                        Hổ Phục, Phong Thủy tuyệt vời, tạo nên một khung cảnh huyền ảo, nên thơ và trữ tình,
+                        mang dáng dấp một nơi An nghỉ Thiên thu vĩnh hằng, Lạc Hồng Viên xứng đáng là nghĩa
+                        trang đẹp nhất miền Bắc, là một nơi Linh thiêng Cửu Tuyền Chín Suối.
+                    </li>
+                </ul>
+            </div>
+            <div class="tar">
+                <a href="https://lachongvien.vn/c/4593/Gioi-Thieu"
+                   class="btn dib cf bg1 ptb10 plr15 mt25 bn bra5">Xem Thêm</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mlra tac w90 ptb50" style="">
+    <div class="pr dib tac">
+        <div class="w10 dib  pb35"><img class="w1" src="img/logo_lhv.png"></div>
+        <div class="pr grid">
+            <div class="fs2 fs12-xs lh1 ttu pb35" style="color:#3e8a6c">Mẫu mộ</div>
+        </div>
+        <div class="fs12 mc1 ">Công viên tâm linh Lạc Hồng Viên</div>
+    </div>
+    <div class="divider green"></div>
+    <div class="grid tac pb25 tabbai">
+        @foreach (var item in Model.ListMauMo)
+        {
+            var link = "/a/" + item.Id + "/" + item.Slug;
+            <a href="@link" class="bấmĐc fs12 bss bcd c6 mlr3 bw1 pa10 bg1cfh">@item.Title</a>
+        }
+
+    </div>
+    @{ var listMf = Model.ListMauMo.FirstOrDefault();}
+    <div class="" style="">
+        <div class="grid df">
+            <div class="db col-md-6 col-sm-6 col-xs-12 fni plr15 mẫuto">
+                <a href="/a/@listMf.Id/@listMf.Slug"
+                   class="col-md-12 col-sm-12 col-xs-12 fni pr bgcfx db shineh"
+                   style="padding-bottom: 65%; background: url(@(WebAppBasite.App_Code.PLibs.GetAdminUrl() + listMf.Thumbnail)) center center / cover;">
+                    <div href="/a/@listMf.Id/@listMf.Slug" class="db pa b0 ptb15 plr10 cf fs13 denmo w1 tac">Khuôn viên mẫu mộ Văn - Nghệ sĩ</div>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 fni vat grid pr tac mẫubé">
+                @foreach (var item in Model.ListMauMo.Skip(1))
+                {
+                    var link = "/a/" + item.Id + "/" + item.Slug;
+                    <a style="margin-bottom:25px" href="@link" class="w50 plr15 shineh">
+                        <div class="bgcd pr w1" style="padding-bottom: 65%; background: url(@(WebAppBasite.App_Code.PLibs.GetAdminUrl() + item.Thumbnail)) center center / cover;">
+                            <div href="#" class="pa db b0 ptb15 plr10 cf fs11 denmo w1 tac">@item.Title</div>
+                        </div>
+                    </a>
+                }
+
+
+            </div>
+        </div>
+    </div>
+    <div class="ptb25 tac"><a href="/c/124/mau-mo" class="bấmĐc fs12 mc1 tduh">Xem thêm</a></div>
+</div>
+
+<div class="bgaf bgpt bgsc bgrn cb tac bgcfx" id="dichvu">
+    <div class="tac pr ptb50">
+        <div class="pr dib" style="">
+            <div class="w10 dib  pb35">
+                <img class="w1"
+                     src="/img/logo_lhv.png">
+            </div>
+            <div class="pr grid">
+                <a href="https://lachongvien.vn/c/4594/Dich-Vu"
+                   class="fs2 fs12-xs lh1 db bấmĐc ttu  pb35" style="color:#3e8a6c">Dịch vụ</a>
+            </div>
+            <div class="fs12 mc1">Công viên tâm linh Lạc Hồng Viên</div>
+        </div>
+        <div class="divider green"></div>
+        <div class="pr w90 mlra">
+            <div class="mlra grid thecha1 oh wsn">
+                @foreach (var item in Model.ListDichVu)
+                {
+                    var link = "/a/" + item.Id + "/" + item.Slug;
+                    <a href="@link"
+                       class="col-md-4 col-sm-4 col-xs-12 fni plr25 vat thecon1 plr15"
+                       style="white-space:normal">
+                        <div class="bgcf pb35 bra3 oh">
+                            <div class="pb43"
+                                 style="background: url(@(WebAppBasite.App_Code.PLibs.GetAdminUrl() + item.Thumbnail)) center center / cover;">
+                            </div>
+                            <div class="mt25 plr15 c6 fs13 tal lh12 fwb">@item.Title</div>
+                            <div class="bg1 w15 mt10 mlr15" style="height:3px"></div>
+                            <div class="mt10 plr15 tal">
+                                @item.Summary
+                            </div>
+                        </div>
+                    </a>
+                }
+
+
+            </div>
+            <div class="pa tl50 w1 tt">
+                <div class="pr">
+                    <div class="pa3 fs15 prev nutslide pa bấmĐc l-4 bgcf o1h bra50 mc1 o05 bfh">
+                        <o class="iIcon ffi usn bra3 tac fsn vam fs2">navigate_before</o>
+                    </div>
+                    <div class="pa3 fs15 next nutslide pa bấmĐc r-4 bgcf o1h bra50 mc1 o05 bfh">
+                        <o class="iIcon ffi usn bra3 tac fsn vam fs2">navigate_next</o>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt25">
+            <a href="/c/123/dich-vu" class="bấmĐc fs12 mc1 tduh dib">Xem thêm</a>
+        </div>
+    </div>
+</div>
+<div class=" tac ptb50" id="thuvien" style="">
+    <div class="pr dib">
+        <div class="w10 dib  pb35">
+            <img class="w1"
+                 src="/img/logo_lhv.png">
+        </div><a href="https://lachongvien.vn/c/4598/Thu-vien" class="db fs2 fs12-xs tac bấmĐc ttu pb35"
+                 style="color:#3e8a6c">Thư viện video</a>
+        <div class="fs12 mc1">Công viên tâm linh Lạc Hồng Viên</div>
+    </div>
+    <div class="divider green"></div>
+    <div class="grid df w90 mlra">
+        <div class="col-md-6 col-xs-12 col-sm-6 fni plr15 thecon2 to">
+            <div id="Q2h5ngOtJYw" class="w1 pr bgpc bgsc bấmĐc  dn" style="padding-bottom:65%">
+                <div class="wh1 pa t0 l0 denmo bgsc bgrn bgpc"
+                     style="padding-bottom: 65%; background-image: url(&quot;https://i1.wp.com/i.ytimg.com/vi/Q2h5ngOtJYw/0.jpg?w=50&amp;quality=100&quot;);">
+                </div>
+                <div class="wh1 pa t0 l0 bgc03">
+                    <div class="wh1 pr">
+                        <div class="pa tl50 tt fs15">
+                            <o class="iIcon ffi usn bra3 tac fsn vam fs2 cd">play_circle_outline</o>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="Q2h5ngOtJYw" class="w1 pr bgpc bgsc bấmĐc " style="padding-bottom:65%">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Q2h5ngOtJYw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12 col-sm-6 fni vat grid pr thecon2 bé">
+            @*<div id="v-UgvU693wY" class="w50 plr15 bấmĐc ">
+                <div id="v-UgvU693wY" class="pr denmo vdt dn" style="padding-bottom:65%">
+                    <div class="wh1 pa bgsc bgrn bgpc"
+                         style="background-image: url(&quot;https://i2.wp.com/i.ytimg.com/vi/v-UgvU693wY/0.jpg?w=50&amp;quality=100&quot;);">
+                    </div>
+                    <div class="wh1 pa t0 l0 bgc03">
+                        <div class="wh1 pr">
+                            <div class="pa tl50 tt fs15">
+                                <o class="iIcon ffi usn bra3 tac fsn vam fs2 cd">play_circle_outline</o>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="v-UgvU693wY" class="bấmĐc bgcfx pr" style="padding-bottom:65%">
+                    <iframe class="ol wh1"
+                            src="./Công viên nghĩa trang Lạc Hồng Viên_files/v-UgvU693wY.html"></iframe>
+                </div>
+            </div>
+            <div id="k1B--sMi51c" class="w50 plr15 bấmĐc  pai b0 l0">
+                <div id="k1B--sMi51c" class="pr denmo vdt dn" style="padding-bottom:65%">
+                    <div class="wh1 pa bgsc bgrn bgpc"
+                         style="background-image: url(&quot;https://i1.wp.com/i.ytimg.com/vi/k1B--sMi51c/0.jpg?w=50&amp;quality=100&quot;);">
+                    </div>
+                    <div class="wh1 pa t0 l0 bgc03">
+                        <div class="wh1 pr">
+                            <div class="pa tl50 tt fs15">
+                                <o class="iIcon ffi usn bra3 tac fsn vam fs2 cd">play_circle_outline</o>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="k1B--sMi51c" class="bấmĐc bgcfx pr" style="padding-bottom:65%">
+                    <iframe class="ol wh1"
+                            src="./Công viên nghĩa trang Lạc Hồng Viên_files/k1B--sMi51c.html"></iframe>
+                </div>
+            </div>
+            <div id="jkExYq-cNoU" class="w50 plr15 bấmĐc  pai b0 r0">
+                <div id="jkExYq-cNoU" class="pr denmo vdt dn" style="padding-bottom:65%">
+                    <div class="wh1 pa bgsc bgrn bgpc"
+                         style="background-image: url(&quot;https://i1.wp.com/i.ytimg.com/vi/jkExYq-cNoU/0.jpg?w=50&amp;quality=100&quot;);">
+                    </div>
+                    <div class="wh1 pa t0 l0 bgc03">
+                        <div class="wh1 pr">
+                            <div class="pa tl50 tt fs15">
+                                <o class="iIcon ffi usn bra3 tac fsn vam fs2 cd">play_circle_outline</o>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="jkExYq-cNoU" class="bấmĐc bgcfx pr" style="padding-bottom:65%">
+                    <iframe class="ol wh1"
+                            src="./Công viên nghĩa trang Lạc Hồng Viên_files/jkExYq-cNoU.html"></iframe>
+                </div>
+            </div>
+            <div id="3Zzs4nEx3g4" class="w50 plr15 bấmĐc ">
+                <div id="3Zzs4nEx3g4" class="pr denmo vdt dn" style="padding-bottom:65%">
+                    <div class="wh1 pa bgsc bgrn bgpc"
+                         style="background-image: url(&quot;https://i3.wp.com/i.ytimg.com/vi/3Zzs4nEx3g4/0.jpg?w=50&amp;quality=100&quot;);">
+                    </div>
+                    <div class="wh1 pa t0 l0 bgc03">
+                        <div class="wh1 pr">
+                            <div class="pa tl50 tt fs15">
+                                <o class="iIcon ffi usn bra3 tac fsn vam fs2 cd">play_circle_outline</o>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="3Zzs4nEx3g4" class="bấmĐc bgcfx pr" style="padding-bottom:65%">
+                    <iframe class="ol wh1"
+                            src="./Công viên nghĩa trang Lạc Hồng Viên_files/3Zzs4nEx3g4.html"></iframe>
+                </div>
+            </div>*@
+        </div>
+    </div>
+    <div class="pt25">
+        <a href="https://lachongvien.vn/c/4598/Thu-vien" class="bấmĐc fs12 mc1 tduh">
+            Xem
+            thêm
+        </a>
+    </div>
+</div>
+<div class="bgaf bgpt bgsc bgrn cb tac pr bgcfx" id="tintuc">
+    <div class="tac p ptb50">
+        <div class="pr dib" style="">
+            <div class="w10 dib  pb35">
+                <img class="w1"
+                     src="/img/logo_lhv.png">
+            </div>
+            <div class="pr grid">
+                <div class="fs2 fs12-xs lh1 tac ttu pb35" style="color:#3e8a6c">Tin tức &amp; sự kiện</div>
+            </div>
+            <div class="fs12 mc1 ">Công viên tâm linh Lạc Hồng Viên</div>
+        </div>
+        <div class="divider green"></div>
+        <div class="df w90 mlra">
+            <div class="col-md-6 col-xs-12 col-sm-6 fni thecon2  pr25">
+                <div class="bgcf to1 wh1">
+                    <a href="https://lachongvien.vn/a/49736/cac-ngay-le-dac-biet-tai-chua-Kim-Son-Lac-Hong-nam-2020"
+                       class="col-md-12 col-sm-12 col-xs-12 fni pr db shineh">
+                        <a href="https://lachongvien.vn/a/49736/cac-ngay-le-dac-biet-tai-chua-Kim-Son-Lac-Hong-nam-2020"
+                           class="pb169 w1 db"
+                           style="background: url(&quot;https://cdn.inevn.com/img/thumb/43890.500x.isij&quot;) center center / cover;"></a>
+                        <div class="plr15">
+                            <a href="https://lachongvien.vn/a/49736/cac-ngay-le-dac-biet-tai-chua-Kim-Son-Lac-Hong-nam-2020"
+                               class="db tal lh15 mc1 fs15 fs12-xs  ptb15">
+                                Lịch tổ chức các ngày lễ đặc
+                                biệt tại chùa Kim Sơn Lạc Hồng năm 2020
+                            </a><a href="https://lachongvien.vn/a/49736/cac-ngay-le-dac-biet-tai-chua-Kim-Son-Lac-Hong-nam-2020"
+                                   class="tal fs1 db lh16">
+                                Chùa Kim Sơn Lạc Hồng trân trọng thông báo lịch tổ
+                                chức các ngày lễ đặc biệt trong năm 2020: Lễ Thanh Minh, Lễ Phật Đản, Vu Lan
+                                Báo Hiếu, lễ vía đức Phật A Di Đà, lễ tạ tất niên
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="tal col-md-3 col-xs-12 col-sm-3 fni vat grid pr thecon2 bé1  pr25">
+                <a href="https://lachongvien.vn/a/47647/Xem-tuoi-boc-mo" class="w1 shineh  mb25">
+                    <div class="pb169 w1"
+                         style="background: url(&quot;https://cdn.inevn.com/img/thumb/39355.500x.isij&quot;) center center / cover;">
+                    </div>
+                    <div class="pt10 mc1 tduh fs11">Xem tuổi bốc mộ</div>
+                    <div class="pt5 10">
+                        Bốc mộ là việc rất quan trọng mà con cháu nên lưu tâm. Khi ngôi mộ
+                        đang ở vị trí đẹp (mộ kết) con cháu không viết mà bốc lên sẽ dễ xảy ra tai họa với
+                        gia đình, nặng thì mất người, nhẹ thì đau ốm... Xem tuổi bốc mộ, xem ngày bốc mộ là
+                        rất quan trọng
+                    </div>
+                </a><a href="https://lachongvien.vn/a/46475/Xe-tham-quan-mien-phi-len-Cong-vien-Tam-linh-Lac-hong-Vien"
+                       class="w1 shineh ">
+                    <div class="pb169 w1"
+                         style="background: url(&quot;https://cdn.inevn.com/img/thumb/42855.500x.isij&quot;) center center / cover;">
+                    </div>
+                    <div class="pt10 mc1 tduh fs11">Xe thăm quan miễn phí lên…</div>
+                    <div class="pt5 10">
+                        Hàng tuần, Lạc Hồng Viên tổ chức xe đưa khách hàng đi thăm
+                        quan&nbsp;dự án Công viên Nghĩa trang&nbsp;Lạc Hồng Viên, quý khách có thể đăng ký
+                        thăm quan miễn phí dự án
+                    </div>
+                </a>
+            </div>
+            <div class="tal col-md-3 col-xs-12 col-sm-3 bgcf pt5 fni vat thecon2 bé2">
+                <a href="https://lachongvien.vn/a/50541/Tao-mo-online-dip-Tet-Thanh-minh-no-ro"
+                   class="pb15 grid db plr10 pt5" style="text-align:justify">
+                    <div class="  dn">
+                        <div class=" w1 pb43 bgrn bgsc bgpc"
+                             style="background-image: url(&quot;https://i2.wp.com/lachongvien.vn/upload/cung-gio3-1585235667-965-width600height360jpeg.jpg?w=200&amp;quality=100&quot;);">
+                        </div>
+                    </div>
+                    <div class=" grid  w1">
+                        <div class="vat w5 dn-xs">
+                            <o class="iIcon ffi usn bra3 tac fsn vam fs1 mc1">bubble_chart</o>
+                        </div>
+                        <div class=" vat tduh fs11 pl10  w90">Tảo mộ online dịp Tết Thanh minh nở rộ</div>
+                        <div class="pt10 dn c6 pl10 fs08">Lạc Hồng Viên - 03/04/2020</div>
+                    </div>
+                </a><a href="https://lachongvien.vn/a/50340/Tranh-tu-tap-dong-nguoi-vi-COVID-19-con-chau-tao-mo-online-dip-Tet-Thanh-Minh"
+                       class="pb15 grid db plr10 pt5" style="text-align:justify">
+                    <div class="  dn">
+                        <div class=" w1 pb43 bgrn bgsc bgpc"
+                             style="background-image: url(&quot;https://i1.wp.com/ss-images.catscdn.vn/wp700/2020/03/28/7248361/ung-345.jpg?w=200&amp;quality=100&quot;);">
+                        </div>
+                    </div>
+                    <div class=" grid  w1">
+                        <div class="vat w5 dn-xs">
+                            <o class="iIcon ffi usn bra3 tac fsn vam fs1 mc1">bubble_chart</o>
+                        </div>
+                        <div class=" vat tduh fs11 pl10  w90">
+                            Tránh tụ tập đông người vì COVID-19, con cháu…
+                        </div>
+                        <div class="pt10 dn c6 pl10 fs08">Lạc Hồng Viên - 30/03/2020</div>
+                    </div>
+                </a><a href="https://lachongvien.vn/a/50339/Cung-Tet-thanh-minh-Online-de-phong-chong-dich-Covid-19"
+                       class="pb15 grid db plr10 pt5" style="text-align:justify">
+                    <div class="  dn">
+                        <div class=" w1 pb43 bgrn bgsc bgpc"
+                             style="background-image: url(&quot;https://i2.wp.com/lachongvien.vn/upload/lac-hong-viendocx-1585379827471png.jpg?w=200&amp;quality=100&quot;);">
+                        </div>
+                    </div>
+                    <div class=" grid  w1">
+                        <div class="vat w5 dn-xs">
+                            <o class="iIcon ffi usn bra3 tac fsn vam fs1 mc1">bubble_chart</o>
+                        </div>
+                        <div class=" vat tduh fs11 pl10  w90">
+                            Cúng Tết thanh minh Online để phòng, chống
+                            dịch…
+                        </div>
+                        <div class="pt10 dn c6 pl10 fs08">Lạc Hồng Viên - 30/03/2020</div>
+                    </div>
+                </a><a href="https://lachongvien.vn/a/50338/Mua-dich-COVID-19-Nguoi-dan-tao-mo-Tet-Thanh-minh-qua-man-hinh-may-tinh"
+                       class="pb15 grid db plr10 pt5" style="text-align:justify">
+                    <div class="  dn">
+                        <div class=" w1 pb43 bgrn bgsc bgpc"
+                             style="background-image: url(&quot;https://i2.wp.com/lachongvien.vn/upload/untitled-1-copy-15854574296401765366094jpg.jpg?w=200&amp;quality=100&quot;);">
+                        </div>
+                    </div>
+                    <div class=" grid  w1">
+                        <div class="vat w5 dn-xs">
+                            <o class="iIcon ffi usn bra3 tac fsn vam fs1 mc1">bubble_chart</o>
+                        </div>
+                        <div class=" vat tduh fs11 pl10  w90">
+                            Mùa dịch COVID-19: Người dân tảo mộ Tết Thanh…
+                        </div>
+                        <div class="pt10 dn c6 pl10 fs08">Lạc Hồng Viên - 30/03/2020</div>
+                    </div>
+                </a><a href="https://lachongvien.vn/a/50337/No-ro-dich-vu-tao-mo-online-mua-Covid-19"
+                       class="pb15 grid db plr10 pt5" style="text-align:justify">
+                    <div class="  dn">
+                        <div class=" w1 pb43 bgrn bgsc bgpc"
+                             style="background-image: url(&quot;https://i2.wp.com/lachongvien.vn/upload/batch1lac-hong-vien-06061248png.jpg?w=200&amp;quality=100&quot;);">
+                        </div>
+                    </div>
+                    <div class=" grid  w1">
+                        <div class="vat w5 dn-xs">
+                            <o class="iIcon ffi usn bra3 tac fsn vam fs1 mc1">bubble_chart</o>
+                        </div>
+                        <div class=" vat tduh fs11 pl10  w90">Nở rộ dịch vụ tảo mộ online mùa Covid-19</div>
+                        <div class="pt10 dn c6 pl10 fs08">Lạc Hồng Viên - 30/03/2020</div>
+                    </div>
+                </a><a href="https://lachongvien.vn/a/49163/Chon-ngay-gio-boc-mo-xem-ngay-dep-cai-tang-sang-cat"
+                       class="pb15 grid db plr10 pt5" style="text-align:justify">
+                    <div class="  dn">
+                        <div class=" w1 pb43 bgrn bgsc bgpc"
+                             style="background-image: url(&quot;https://i1.wp.com/cdn.inevn.com/img/thumb/41667.1kx.isij?w=200&amp;quality=100&quot;);">
+                        </div>
+                    </div>
+                    <div class=" grid  w1">
+                        <div class="vat w5 dn-xs">
+                            <o class="iIcon ffi usn bra3 tac fsn vam fs1 mc1">bubble_chart</o>
+                        </div>
+                        <div class=" vat tduh fs11 pl10  w90">
+                            Chọn ngày giờ bốc mộ, xem ngày đẹp cải táng
+                            sang…
+                        </div>
+                        <div class="pt10 dn c6 pl10 fs08">Lạc Hồng Viên - 21/02/2020</div>
+                    </div>
+                </a><a href="https://lachongvien.vn/a/49154/Nhung-kieng-ky-phai-tranh-khi-cai-tang-boc-mo-sang-cat-neu-khong-gia-toc-se-lui-tan"
+                       class="pb15 grid db plr10 pt5" style="text-align:justify">
+                    <div class="  dn">
+                        <div class=" w1 pb43 bgrn bgsc bgpc"
+                             style="background-image: url(&quot;https://i3.wp.com/lachongvien.vn/upload/MG_1112jpg.jpg?w=200&amp;quality=100&quot;);">
+                        </div>
+                    </div>
+                    <div class=" grid  w1">
+                        <div class="vat w5 dn-xs">
+                            <o class="iIcon ffi usn bra3 tac fsn vam fs1 mc1">bubble_chart</o>
+                        </div>
+                        <div class=" vat tduh fs11 pl10  w90">
+                            Những kiêng kỵ phải tránh khi cải táng, bốc
+                            mộ,…
+                        </div>
+                        <div class="pt10 dn c6 pl10 fs08">Lạc Hồng Viên - 21/02/2020</div>
+                    </div>
+                </a><a href="https://lachongvien.vn/a/49105/Nguoi-dan-un-un-di-tao-mo-o-nghia-trang-nha-giau"
+                       class="pb15 grid db plr10 pt5" style="text-align:justify">
+                    <div class="  dn">
+                        <div class=" w1 pb43 bgrn bgsc bgpc"
+                             style="background-image: url(&quot;https://i1.wp.com/lachongvien.vn/upload/anh1-copy-15790897997731947040264jpg.jpg?w=200&amp;quality=100&quot;);">
+                        </div>
+                    </div>
+                    <div class=" grid  w1">
+                        <div class="vat w5 dn-xs">
+                            <o class="iIcon ffi usn bra3 tac fsn vam fs1 mc1">bubble_chart</o>
+                        </div>
+                        <div class=" vat tduh fs11 pl10  w90">
+                            Người dân ùn ùn đi tảo mộ ở nghĩa trang “nhà…
+                        </div>
+                        <div class="pt10 dn c6 pl10 fs08">Lạc Hồng Viên - 20/02/2020</div>
+                    </div>
+                </a><a href="https://lachongvien.vn/a/48472/Tiec-Khai-Xuan-tai-Cong-ty-CP-DTXDTM-Toan-Cau"
+                       class="pb15 grid db plr10 pt5" style="text-align:justify">
+                    <div class="  dn">
+                        <div class=" w1 pb43 bgrn bgsc bgpc"
+                             style="background-image: url(&quot;https://i2.wp.com/cdn.inevn.com/img/thumb/41834.1kx.isij?w=200&amp;quality=100&quot;);">
+                        </div>
+                    </div>
+                    <div class=" grid  w1">
+                        <div class="vat w5 dn-xs">
+                            <o class="iIcon ffi usn bra3 tac fsn vam fs1 mc1">bubble_chart</o>
+                        </div>
+                        <div class=" vat tduh fs11 pl10  w90">
+                            Tiệc Khai Xuân tại Công ty CP ĐTXD&amp;TM Toàn
+                            Cầu
+                        </div>
+                        <div class="pt10 dn c6 pl10 fs08">Lạc Hồng Viên - 31/01/2020</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="mt25">
+            <a href="https://lachongvien.vn/c/4625/Lac-Hong-Vien"
+               class="bấmĐc fs12 mc1 tduh dib">Xem thêm</a>
+        </div>
+    </div>
+</div>
+<div class="mlra tac ptb50 pr" style="">
+    <div class="pr dib">
+        <div class="w10 dib  pb35">
+            <img class="w1"
+                 src="/img/logo_lhv.png">
+        </div>
+        <div class="pr grid">
+            <div class="fs2 fs12-xs tac ttu lh1 pb35" style="color:#3e8a6c">Cảm nhận của khách hàng</div>
+        </div>
+        <div class="fs12 mc1 ">Công viên tâm linh Lạc Hồng Viên</div>
+    </div>
+    <div class="divider green"></div>
+    <div class="mt25" style="">
+        <div class="pr w90 mlra ">
+            <div id="camnhankh" class="w1 oh wsn jcsa grid camnhan1 pb15 pt50">
+                <a href="https://lachongvien.vn/a/43882/Anh-Ho-Tri-Dung-khi-toi-tham-quan-cong-vien-nghia-trang-Lac-Hong-Vien"
+                   class="43882 col-md-4 col-sm-4 col-xs-12 fni plr25 camnhan2 vat "
+                   style="white-space:normal">
+                    <div class="bóng bgcf bra3 tac">
+                        <div class="bra50 wh100 oh bóng dib mlra bgpc bgsc ảnh"
+                             style="margin-top:-50px;background-image:url(&#39;https://i2.wp.com/i.ytimg.com/vi/eS15v6xAjo4/0.jpg&#39;) ">
+                        </div>
+                        <div class="w90 mlra ffm ptb35 fs12 fs09-xs">
+                            Gia đình chúng tôi có người thân an
+                            nghỉ trên nghĩa trang Lạc Hồng Viên. Lí do khiến gia đình…
+                        </div>
+                        <div class="bss bc1 bb2 w10 mlra" style=""></div>
+                        <div class="ptb25"></div>
+                    </div>
+                </a><a href="https://lachongvien.vn/a/43881/Cam-nhan-cua-ba-Le-Tuyet-Nhung-khi-dua-mo-len-nghia-trang-Lac-Hong-Vien"
+                       class="43881 col-md-4 col-sm-4 col-xs-12 fni plr25 camnhan2 vat "
+                       style="white-space:normal">
+                    <div class="bóng bgcf bra3 tac">
+                        <div class="bra50 wh100 oh bóng dib mlra bgpc bgsc ảnh"
+                             style="margin-top:-50px;background-image:url(&#39;https://i3.wp.com/i.ytimg.com/vi/ikZfs-zcw7c/0.jpg&#39;) ">
+                        </div>
+                        <div class="w90 mlra ffm ptb35 fs12 fs09-xs">
+                            Khi gia đình chúng tôi đặt vấn đề để
+                            đưa mộ bên nội và bên ngoại của tôi đến vùng đất của&nbsp;…
+                        </div>
+                        <div class="bss bc1 bb2 w10 mlra" style=""></div>
+                        <div class="ptb25"></div>
+                    </div>
+                </a><a href="https://lachongvien.vn/a/43880/Cam-nhan-cua-bac-Le-Dinh-Chu-ve-Lac-Hong-Vien"
+                       class="43880 col-md-4 col-sm-4 col-xs-12 fni plr25 camnhan2 vat "
+                       style="white-space:normal">
+                    <div class="bóng bgcf bra3 tac">
+                        <div class="bra50 wh100 oh bóng dib mlra bgpc bgsc ảnh"
+                             style="margin-top:-50px;background-image:url(&#39;https://i3.wp.com/i.ytimg.com/vi/JlykKmItDPI/0.jpg&#39;) ">
+                        </div>
+                        <div class="w90 mlra ffm ptb35 fs12 fs09-xs">
+                            Tôi có cảm tưởng là Lạc Hồng Viên quá
+                            đẹp. Hội người cao tuổi quận Đống Đa đưa chúng tôi lên…
+                        </div>
+                        <div class="bss bc1 bb2 w10 mlra" style=""></div>
+                        <div class="ptb25"></div>
+                    </div>
+                </a><a href="https://lachongvien.vn/a/43879/Cam-nhan-cua-ba-Khuong"
+                       class="43879 col-md-4 col-sm-4 col-xs-12 fni plr25 camnhan2 vat "
+                       style="white-space:normal">
+                    <div class="bóng bgcf bra3 tac">
+                        <div class="bra50 wh100 oh bóng dib mlra bgpc bgsc ảnh"
+                             style="margin-top:-50px;background-image:url(&#39;https://i0.wp.com/i.ytimg.com/vi/-mRG7FDSWwY/0.jpg&#39;) ">
+                        </div>
+                        <div class="w90 mlra ffm ptb35 fs12 fs09-xs">
+                            Khi mà tôi biết có bạn bè, có người ở
+                            trên này, và mọi người cũng đã giới thiệu ở trên này thì…
+                        </div>
+                        <div class="bss bc1 bb2 w10 mlra" style=""></div>
+                        <div class="ptb25"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="pa tl50 w1 tt">
+                <div class="pr">
+                    <div class="pa3 o05 o1h bgcf fs15 bfh bra50 prev camnhan trai pa mc1 bấmĐc l-4">
+                        <o class="iIcon ffi usn bra3 tac fsn vam fs2">navigate_before</o>
+                    </div>
+                    <div class="pa3 o05 o1h bgcf fs15 bfh bra50 next camnhan phai pa mc1 bấmĐc r-4">
+                        <o class="iIcon ffi usn bra3 tac fsn vam fs2">navigate_next</o>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mlra tac bgcfx" id="bando" style="">
+    <div class="ptb25 pb50" style="">
+        <div class="w10 dib  pb35">
+            <img class="w1"
+                 src="/img/logo_lhv.png">
+        </div>
+        <div class="fs2 fs12-xs lh1 ttu pb35" style="">Liên hệ</div>
+        <div class="fs12 mc1">Công viên tâm linh Lạc Hồng Viên</div>
+        <div class="divider green"></div>
+        <div class="grid w90 mlra tac mlra mt25 df jcsa">
+            <div class="col-md-5 col-sm-5 col-xs-0 vat plr35">
+                <div class="bgcf ptb15 bencanh wh1 pr">
+                    <div class="plr25 grid pa w1 tl50 tt">
+                        <div class="w1 tal mt15">
+                            <div class="w1 mc1 tac">
+                                Những mục đánh dấu (*) là những mục bắt buộc phải điền
+                                thông tin
+                            </div>
+                        </div>
+                        <div class="w1 tal mt15">
+                            <div class="w1">Email liên hệ (*)</div><input class="w1 mt5 pa5 bra3 bcd email">
+                        </div>
+                        <div class="w1 tal mt15">
+                            <div class="w1">Tên liên hệ (*)</div><input class="w1 mt5 pa5 bra3 bcd tên">
+                        </div>
+                        <div class="w1 tal mt15">
+                            <div class="w1">Địa chỉ</div><input class="w1 mt5 pa5 bra3 bcd địachỉ">
+                        </div>
+                        <div class="w1 tal mt15">
+                            <div class="w1">Số điện thoại</div><input class="w1 mt5 pa5 bra3 bcd sđt">
+                        </div>
+                        <div class="w1 tal mt15">
+                            <div class="w1">Nội dung liên hệ (*)</div><input class="w1 mt5 pa5 bra3 hmn1 bcd nd">
+                        </div>
+                        <div class="w1 tar mt15 pl10">
+                            <div class="plr10 bấmĐc ptb7 cf dib" style="background:#f9a36b">
+                                Gửi Thông Tin
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-12 fni vat bando plr35">
+                <div class="fs12 mb10 fs09-xs">Bản đồ đường đến Công ty ĐTXD &amp; TM Toàn Cầu</div>
+                <div class=" pb10 h50">
+                    <iframe id="zutub"
+                            src="./Công viên nghĩa trang Lạc Hồng Viên_files/embed.html" width="100%"
+                            height="250px" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                </div>
+                <div class="fs12 fs09-xs mt10">Bản đồ đường đến dự án Lạc Hồng Viên</div>
+                <div class=" pt10 h50">
+                    <iframe id="zutub1"
+                            src="./Công viên nghĩa trang Lạc Hồng Viên_files/embed(1).html" width="100%"
+                            height="250px" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

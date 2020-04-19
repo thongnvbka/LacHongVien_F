@@ -1,0 +1,30 @@
+﻿
+
+@model WebAppBasite.Models.NewsViewModels.NewsCategoriesViewModels
+@using WebAppBasite.Common.Lib
+@{
+    ViewData["Title"] = "Tìm kiếm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="tac w85 mlra ptb35">
+    <div class="grid">
+        <div class="mr10 fs15 fs12-xs c6 kqtkiem">Kết quả tìm kiếm cho:</div>
+        <div class="fs15 c6 fs12-xs">@ViewBag.Keyword</div>
+    </div>
+
+    <div class="pt35 c6 grid tal">
+        @foreach (var item in Model.Data.Results)
+        {
+            var link = "/a/" + item.Id + "/" + item.Slug;
+            <a href="@link" class="col-md-3 col-xs-6 col-sm-6 fni vat plr10 pb15 ">
+                <div class=""><div class="pb43 w1 bss bcd bw1" style="background: url(@(WebAppBasite.App_Code.PLibs.GetAdminUrl() + item.Thumbnail)) center center / cover;"></div></div>
+                <div class="pt10 tal tduh fs12 lh12 fs09-xs">@item.Title</div>
+            </a>
+        }
+    </div>
+</div>
+
+
+
+
+@(await Component.InvokeAsync("Pager", Model.Data))

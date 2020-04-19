@@ -1,0 +1,67 @@
+﻿@model WebAppBasite.Common.Dtos.PagedResultBase
+@using WebAppBasite.Common
+@{
+    var next = Model.CurrentPage + 1;
+    var pre = Model.CurrentPage - 1;
+    var urlTemplate = Url.Action() + "?page={0}";
+    var urlNext = Url.Action() + "?page=" + next;
+    var urlPre = Url.Action() + "?page=" + pre;
+    var request = ViewContext.HttpContext.Request;
+    foreach (var key in request.Query.Keys)
+    {
+        if (key == "page")
+        {
+            continue;
+        }
+
+        urlTemplate += "&" + key + "=" + request.Query[key];
+    }
+
+    var startIndex = Math.Max(Model.CurrentPage - 3, 1);
+    var finishIndex = Math.Min(Model.CurrentPage + 3, Model.PageCount);
+}
+@if (Model.PageCount > 0)
+{
+    <div class="phântrang pt25 grid tac">
+        <div class="ptb5 trangtruoc bấmĐc plr5 bra3 fs1 bss bcd bw1 bgcfx mc1 mlr3">
+            <a href="@urlPre">
+                <o class="iIcon ffi usn bra3 tac fsn fs1">keyboard_arrow_left</o>
+            </a>
+        </div>
+        @*<div class="dautien grid">
+            <a href="@(Model.CurrentPage>1?urlTemplate.Replace("{0}", "1"):"javascript:void(0)" )" id="1"
+               class="bấmĐc trangtin pa10 bra3 fs1 bss bcd bw1 bgcfx mlr3 bg1 cf" stt="1">1</a>
+        </div>*@
+        @for (var i = startIndex; i <= finishIndex; i++)
+        {
+            if (i == Model.CurrentPage)
+            {
+                <div class="giua grid">
+                    <a href="javascript:void(0)" id="@i" class="bấmĐc trangtin pa10 bra3 fs1 bss bcd bw1 bgcfx mlr3 bg1 cf" stt="@i">@i</a>
+                </div>
+            }
+            else
+            {
+                <div class="giua grid">
+                    <a href="@urlTemplate.Replace("{0}", i.ToString())" id="@i" class="bấmĐc trangtin pa10 bra3 fs1 bss bcd bw1 bgcfx mc1 mlr3" stt="@i">@i</a>
+                </div>
+            }
+
+        }
+        @if (Model.RowCount > 2)
+        {
+            <div class="ogiua pa10 bra3 fs1 bss bcd bw1 bgcfx mc1 mlr3">...</div>
+
+        }
+        @*<div class="cuoicung grid">
+            <a href="@(Model.CurrentPage<finishIndex?urlTemplate.Replace("{0}", Model.PageCount.ToString()):"javascript:void(0)" )" id="12"
+               class="bấmĐc trangtin pa10 bra3 fs1 bss bcd bw1 bgcfx mc1 mlr3" stt="12">12</a>
+        </div>*@
+        <div class="ptb5 trangsau bấmĐc plr5 bra3 fs1 bss bcd bw1 bgcfx mc1 mlr3">
+            <a href="@urlNext">
+                <o class="iIcon ffi usn bra3 tac fsn fs1">keyboard_arrow_right</o>
+            </a>
+        </div>
+    </div>
+}
+

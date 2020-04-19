@@ -1,0 +1,46 @@
+﻿
+@model WebAppBasite.Models.NewsViewModels.NewsCategoriesViewModels
+@using WebAppBasite.Common.Lib
+@using WebAppBasite.App_Code
+@{
+    ViewData["Title"] = "NewsCatalog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section style {
+    <style>
+        .col-md-4 {
+            width: 32.333333%;
+        }
+    </style>
+}
+<div class="tac w90 mlra">
+    <div class="mc1 ttu fs2 lh1 pt25 fs12-xs ttu">@Model.Category.TenDanhMuc</div>
+    <div class="divider green"></div>
+    <div class="grid tal pb35 chờmẫu">
+        @foreach (var item in Model.Data.Results)
+        {
+            var link = "/a/" + item.Id + "/" + item.Slug;
+            @*<a class="w33 pa15 vat bấmĐc" id="@item.Id"
+                   href="@link">
+                    <div class="pr">
+                        <div class="w1 pb43 ảnh shineh"
+                             style="background: url(@(WebAppBasite.App_Code.PLibs.GetAdminUrl() + item.Thumbnail)) center center / cover;">
+                        </div>
+                        <div class="pa b0 l0 w1 ptb15 pl10 fs09-xs fs1 cf bgc06 bấmĐc chữ">
+                            @item.Title
+                        </div>
+                    </div>
+                </a>*@
+
+            <a class="col-md-4 col-sm-4 col-xs-12 fni bấmĐc mtb10 plr15" id="@item.Id" href="@link">
+                <div class="pr">
+                    <div class="w1 pb43 ảnh shineh" style="background: url(@(WebAppBasite.App_Code.PLibs.GetAdminUrl() + item.Thumbnail)) center center / cover;"></div>
+                    <div class="pa b0 l0 w1 ptb15 pl10 fs09-xs fs1 cf bgc06 bấmĐc chữ">@item.Title</div>
+                </div>
+            </a>
+        }
+    </div>
+</div>
+@*@(await Component.InvokeAsync("Pager", Model.Data))*@

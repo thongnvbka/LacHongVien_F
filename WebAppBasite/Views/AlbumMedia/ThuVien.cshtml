@@ -1,0 +1,292 @@
+﻿@model WebAppBasite.Models.ViewModel.AlbumMediaViewModels
+@using WebAppBasite.Common.Lib
+@using WebAppBasite.App_Code
+@{
+    ViewData["Title"] = "ThuVien";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Style{ 
+    <style>
+        .col-md-4 {
+            width: 32.333333%;
+        }
+        .modal-open .modal {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .fade.in {
+            opacity: 1;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10050;
+            outline: 0;
+        }
+        .modal, .modal-backdrop {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .fade {
+            opacity: 0;
+            -webkit-transition: opacity .15s linear;
+            -o-transition: opacity .15s linear;
+            transition: opacity .15s linear;
+        }
+        .modal.in .modal-dialog {
+            transform: translate(0,0);
+        }
+        .modal.fade .modal-dialog {
+            transition: transform .3s ease-out;
+        }
+        .modal-dialog {
+            position: relative;
+            width: auto;
+            margin: 10px;
+        }
+        .modal-content {
+            box-shadow: 0 5px 0px rgba(0, 0, 0, 0);
+        }
+        .modal-content {
+            background: transparent;
+            border-radius: 10px;
+            border: none;
+        }
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            border: 1px solid #999;
+            border: 1px solid rgba(0,0,0,.2);
+            border-radius: 6px;
+            -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+            box-shadow: 0 3px 9px rgba(0,0,0,.5);
+            outline: 0;
+        }
+        .modal-body {
+            position: relative;
+            padding: 15px;
+        }
+        .modal-body {
+            position: relative;
+            padding: 15px;
+            height: 500px;
+        }
+        button.close {
+            padding: 0;
+            cursor: pointer;
+            background: 0 0;
+            border: 0;
+            -webkit-appearance: none;
+        }
+        .close {
+            float: right;
+            font-size: 21px;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            opacity: .2;
+            filter: alpha(opacity=20);
+        }
+    </style>
+}
+<div id="body" class="bgcf">
+    <div class="w90 mlra tac">
+        <div class="ttu ptb10 fs2 c9 fs12-xs pt25 tac">thư viện ảnh &amp; video lạc hồng viên</div>
+        <div class="divider green"></div>
+        <div class="grid tac ">
+            <div id="btn-img" class="bra3 dib col-md-3 col-ms-3 col-xs-6 fni plr15 ptb10 fs15 fs09-xs bấmĐc tabthưviện bg1 cf">
+                Thư viện ảnh
+            </div>
+            <div id="btn-video" class="bra3 dib col-md-3 col-ms-3 col-xs-6 fni plr15 ptb10 fs15 fs09-xs bấmĐc tabthưviện bgcd mc1">
+                Thư
+                viện video
+            </div>
+            @*<a href="#tvVideo">
+
+                </a>*@
+
+        </div>
+        <div class="ptb25">
+            <div id="tvAnh" class="grid tal pr">
+                <div class="hienbai w1 grid">
+                    @foreach (var item in Model.AlbumList)
+                    {
+                        var link = "/v/" + item.id + "/" + item.MaDanhMuc;
+                        <a href="@link" id="@item.id"
+                           class=" col-md-4 col-sm-4 col-xs-12 fni bấmĐc pa15">
+                            <div class="pr">
+                                <div class="w1 pb43 bgcd shineh "
+                                     style="background: url(@(WebAppBasite.App_Code.PLibs.GetAdminUrl() + item.Path)) center center ">
+                                </div>
+                                <div class="pa b0 l0 w1 ptb15 pl10 fs09-xs fs1 cf bgc06 bấmĐc">
+                                    @item.TenDanhMuc
+                                </div>
+                            </div>
+                        </a>
+                    }
+
+                </div>
+                <div class="phântrang pt25 tac grid w1">
+                    <div class="ptb5 trangtruoc bấmĐc plr5 bra3 fs1 bss bcd bw1 bgcfx mc1 mlr3 bgcf">
+                        <o class="iIcon ffi usn bra3 tac fsn fs1">keyboard_arrow_left</o>
+                    </div><a href="/c/4598/Thu-vien/page1" id="1"
+                             class="bấmĐc trangtin pa10 bra3 fs1 bss bcd bw1 bgcfx mlr3 caidau bg1 cf" stt="1">1</a>
+                    <div class="giua grid bgcf mc1">
+                        <a href="/c/4598/Thu-vien/page2" id="2"
+                           class="bấmĐc trangtin pa10 bra3 fs1 bss bcd bw1 bgcfx mc1 mlr3" stt="2">2</a><a href="/c/4598/Thu-vien/page3" id="3"
+                                                                                                           class="bấmĐc trangtin pa10 bra3 fs1 dn bss bcd bw1 bgcfx mc1 mlr3" stt="3">3</a><a href="/c/4598/Thu-vien/page4" id="4"
+                                                                                                                                                                                              class="bấmĐc trangtin pa10 bra3 fs1 dn bss bcd bw1 bgcfx mc1 mlr3" stt="4">4</a><a href="/c/4598/Thu-vien/page5" id="5"
+                                                                                                                                                                                                                                                                                 class="bấmĐc trangtin pa10 bra3 fs1 dn bss bcd bw1 bgcfx mc1 mlr3" stt="5">5</a>
+                    </div>
+                    <div class="ogiua pa10 bra3 fs1 bss bcd bw1 bgcfx mc1 mlr3 bgcf">...</div><a href="/c/4598/Thu-vien/page6" id="6"
+                                                                                                 class="bấmĐc trangtin pa10 bra3 fs1 bss bcd bw1 bgcfx mc1 mlr3 caicuoi bgcf" stt="6">6</a>
+                    <div class="ptb5 trangsau bấmĐc plr5 bra3 fs1 bss bcd bw1 bgcfx mc1 mlr3 bgcf">
+                        <o class="iIcon ffi usn bra3 tac fsn fs1">keyboard_arrow_right</o>
+                    </div>
+                </div>
+            </div>
+            <div id="tvVideo" class="dn">
+                <div class="fni tal videoxem grid" style="">
+                    @foreach (var item in Model.VideoList)
+                    {
+                        <div data-url="@WebAppBasite.Ultilities.PLibs.DetachedVideoIdYT(item.url)" class="col-md-4 col-sm-4 col-xs-6 fni pa10 dib pr bấmĐc video-popup" id="@item.url">
+                            <div class="denmo bgsc bgrn bgpc pb43"
+                                 style="background-image: url(@(WebAppBasite.App_Code.PLibs.GetAdminUrl() + item.main_content));">
+                            </div>
+                            <div class="wh1 pa t0 l0 pa10">
+                                <div class="wh1 bgc03">
+                                    <div class="wh1 pr">
+                                        <div class="pa tl50 tt fs15">
+                                            <o class="iIcon ffi usn bra3 tac fsn vam fs2 cd">play_circle_outline</o>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="khungThôngBáo"></div>
+    <div class="modal fade" id="videoPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="video-popup-content" id="player">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="https://www.youtube.com/player_api"></script>
+    <script>
+        $(".tabthưviện").on("click", function () {
+            var t = $(this),
+                p = t.parent(),
+                ts = t.index();
+            // console.log(ts==0);
+            //t.sửaLớp("-c6,bg1,mc1,cf,-bgcd").siblings().sửaLớp("-bg1,-mc1,c6,-cf,bgcd");
+            //cl(ts)
+            //p.next().children().eq(ts).sửaLớp("-dn").siblings().sửaLớp("dn");
+            if (ts == 0) {
+                //  alert(2)
+                $('#btn-img').addClass("bg1 cf")
+                $('#btn-video').removeClass("bg1 cf").addClass("bgcd mc1")
+                $('#tvAnh').show();
+                $('#tvVideo').hide();
+            }
+            else {
+                $('#btn-video').addClass("bg1 cf")
+                $('#btn-img').removeClass("bg1 bgcd cf").addClass("bgcd mc1")
+                $('#tvAnh').hide();
+                $('#tvVideo').show();
+            }
+        })
+
+        function onPlayerReady(event) {
+            event.target.playVideo();
+        }
+
+        var player;
+        function init_player(id) {
+
+            if (typeof YT === 'undefined' && typeof window.loadingPlayer === 'undefined') {
+                // Prevents Ready Event from being called twice
+                window.loadingPlayer = true;
+
+
+                // Creates deferred so, other players know when to wait.
+                window.dfd = $.Deferred();
+                window.onYouTubeIframeAPIReady = function () {
+                    window.onYouTubeIframeAPIReady = null;
+                    window.dfd.resolve("done");
+                };
+            } else if (typeof YT === 'object') {
+                if (typeof YT.Player !== 'undefined') {
+
+
+                    player = new YT.Player('player', {
+                        height: '100%',
+                        width: '100%',
+                        videoId: id,
+                        playerVars: { rel: 0 },
+                        events: {
+                            'onReady': onPlayerReady
+                        }
+                    });
+                } else {
+                    window.dfd = $.Deferred();
+                    window.onYouTubeIframeAPIReady = function () {
+                        window.onYouTubeIframeAPIReady = null;
+                        window.dfd.resolve("done");
+
+                        player = new YT.Player('player', {
+                            height: '100%',
+                            width: '100%',
+                            videoId: id,
+                            playerVars: { rel: 0 },
+                            events: {
+                                'onReady': onPlayerReady
+                            }
+                        });
+                    };
+                }
+
+            } else {
+                window.dfd.done(function (name) {
+                    alert(3);
+                });
+            }
+        }
+        function change_yt(id) {
+            player.loadVideoById(id);
+        }
+        $(document).ready(function () {
+
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            init_player('');
+            $(".video-popup").click(function () {
+                console.log($(this));
+                //return;
+                if (0 < ("#videoPopup").length) {
+                    var b = $(this).attr("data-video");
+                    change_yt(b)
+                    $("#videoPopup").show();
+                }
+            });
+
+        }, false);
+    </script>
+}

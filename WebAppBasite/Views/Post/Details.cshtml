@@ -1,0 +1,207 @@
+﻿@model WebAppBasite.Models.ViewModel.HomeViewModels
+@using System.Data
+@using WebAppBasite.App_Code
+@using WebAppBasite.Common.Lib
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*@section headermeta{
+        <meta property="og:url" content="http://saohathanh.com/@(Model.DetailNews.cate_slug)/@(Model.DetailNews.Slug).html" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="@Model.DetailNews.Title" />
+        <title>@Model.DetailNews.Title</title>
+        <meta property="og:description" content="@Model.DetailNews.Summary" />
+        <meta property="og:image" content="@(PLibs.GetAdminUrl()+Model.DetailNews.Thumbnail)" />
+        <meta property="og:image:width" content="320">
+        <meta property="og:image:height" content="180">
+        <link href="http://saohathanh.com/@(Model.DetailNews.cate_slug)/@(Model.DetailNews.Slug).html" rel="canonical" />
+
+    }*@
+
+<style>
+    @@media (min-width: 992px) {
+        .col-md-8 {
+            width: 65.666667%;
+        }
+
+        .w70 {
+            float: right;
+        }
+    }
+</style>
+<div class="pt50 grid w90 mlra">
+    <div class="col-md-8 col-sm-8 col-xs-12 fni pr35">
+        <h1 class="db fwb mc1 pb15 ttu pb10 bb1 lh12 bss bcd fs15 fs12-xs">
+            Dịch vụ thay người thân chăm sóc phần mộ
+        </h1>
+        <div class="grid">
+            <div class="c9 mt10 mr15">Dịch vụ</div>
+            <div class="c9 mt10">15 / 12 / 2019</div>
+        </div>
+        <div class="ptb25 grid">
+            <a href="/a/50541/Tao-mo-online-dip-Tet-Thanh-minh-no-ro"
+               class="w33 plr15 vat bấmĐc db pr" id="50541">
+                <div class="pb169 w1 ảnh"
+                     style="background: url(&quot;/upload/cung-gio3-1585235667-965-width600height360jpeg.jpg&quot;) center center / cover;">
+                </div>
+                <div class="pt5 tduh fs09 tduh chữ">Tảo mộ online dịp Tết Thanh…</div>
+            </a><a href="/a/50340/Tranh-tu-tap-dong-nguoi-vi-COVID-19-con-chau-tao-mo-online-dip-Tet-Thanh-Minh"
+                   class="w33 plr15 vat bấmĐc db pr" id="50340">
+                <div class="pb169 w1 ảnh"
+                     style="background: url(&quot;https://i1.wp.com/ss-images.catscdn.vn/wp700/2020/03/28/7248361/ung-345.jpg&quot;) center center / cover;">
+                </div>
+                <div class="pt5 tduh fs09 tduh chữ">Tránh tụ tập đông người vì…</div>
+            </a><a href="/a/50339/Cung-Tet-thanh-minh-Online-de-phong-chong-dich-Covid-19"
+                   class="w33 plr15 vat bấmĐc db pr" id="50339">
+                <div class="pb169 w1 ảnh"
+                     style="background: url(&quot;/upload/lac-hong-viendocx-1585379827471png.jpg&quot;) center center / cover;">
+                </div>
+                <div class="pt5 tduh fs09 tduh chữ">Cúng Tết thanh minh Online để…</div>
+            </a>
+        </div>
+        <div class="fs12 lh15" style="text-align:justify">
+            @Html.Raw(
+                Model.DetailNews.FullContent
+                .Replace("\\", "/")
+                .Replace("\"/UserData/0", "\"" + WebAppBasite.App_Code.PLibs.GetAdminUrl() + "/UserData/" + "0")
+                .Replace("; font-size: 16px;margin: auto; line - height: 20px !important;", "")
+                )
+        </div>
+
+
+        <div class="ptb35">
+            <div class="bss bcd bb1 pb10 mc1 fs15 fs12-xs mc1">Bài viết liên quan</div>
+            <div class="grid mt25">
+                <a href="/a/46842/Khuon-vien-mau-mo-Gia-toc" class="w33 plr15 vat bấmĐc">
+                    <div class="pb169"
+                         style="background: url(&quot;https://i2.wp.com/cdn.inevn.com/temp/24_4e743ee54d80b57ca819fd67481786f1.isij?w=300&amp;quality=100&quot;) center center / cover;">
+                    </div>
+                    <div class="mt5 tduh fs09">Khuôn viên mẫu mộ Gia tộc</div>
+                </a><a href="/a/46840/Mo-gia-dinh-lon" class="w33 plr15 vat bấmĐc">
+                    <div class="pb169"
+                         style="background: url(&quot;https://i3.wp.com/cdn.inevn.com/temp/24_c42251ec7ecf1e126858028e7a3bffc4.isij?w=300&amp;quality=100&quot;) center center / cover;">
+                    </div>
+                    <div class="mt5 tduh fs09">Mộ gia đình lớn</div>
+                </a><a href="/a/46837/Mo-gia-dinh-nho" class="w33 plr15 vat bấmĐc">
+                    <div class="pb169"
+                         style="background: url(&quot;https://i2.wp.com/lachongvien.vn/wp-content/uploads/2017/05/IMG_7650.jpg?w=300&amp;quality=100&quot;) center center / cover;">
+                    </div>
+                    <div class="mt5 tduh fs09">Mộ gia đình nhỏ</div>
+                </a>
+            </div>
+        </div>
+        <div class="">
+            <div class="">
+                <div class="fs2 pb15 bss bcd bb1 mc1">Bình luận</div>
+                <div class="fs09 ptb10 c6 pl10 dn">Khách hàng cần đăng nhập để sử dụng chức năng bình luận</div>
+                <div class="">
+                    <input class="w80 plr10 ptb5 ml10 mt10 bss bcd bw1 tenkhach1"
+                           placeholder="Tên khách hàng"><input class="w80 plr10 ptb5 ml10 mt10 bss bcd bw1 emailkhach1"
+                                                               placeholder="Email khách hàng">
+                </div><textarea class="w80 pl10 ml10 binhluan mt15 h100 bcd"></textarea>
+                <div class="grid bấmĐc vat ml10">
+                    <div class="bg1 cf bra3 pa5 mt15">Gửi bình luận</div>
+                </div>
+            </div>
+            <div class="pt25">
+                <div class="blGhim pb25"></div>
+            </div>
+        </div>
+    </div>
+    <div class="vmlq col-md-4 col-sm-4 col-xs-12 fni tac vat pr plr10">
+        <div class="phầnfix">
+            <div class="pb169 bgsc bgpc bgrn pr" style="background-image: url(&quot;/img/toancanh.jpg&quot;);">
+            </div>
+            <div class="">
+                <div class="grid tac mc1 fs12 fs09-xs pt10 pb5">
+                    <div class="bg1 cf w50 ptb5 brbl3 brtl3 tab bấmĐc">Tin đọc nhiều nhất </div>
+                    <div class="bgcfx c6 w50 ptb5 brtr3 brbr3 tab bấmĐc">Bài viết liên quan </div>
+                </div>
+                <div class="tal">
+                    <div class="">
+                        <a href="/a/49736/cac-ngay-le-dac-biet-tai-chua-Kim-Son-Lac-Hong-nam-2020"
+                           class="grid ptb10 db">
+                            <div class="w30">
+                                <div class="w1 pb169 bấmĐc"
+                                     style="background: url(&quot;https://cdn.inevn.com/img/thumb/43890.200x.isij&quot;) center center / cover;">
+                                </div>
+                            </div>
+                            <div class="w70 plr10 vat oh bấmĐc">
+                                <div class="fwb mc1h">
+                                    Lịch tổ chức các ngày lễ đặc biệt tại chùa Kim Sơn Lạc Hồng
+                                    năm 2020
+                                </div>
+                                <div class="pt5 c6 grid fs09">Lạc Hồng Viên - 09/03/2020</div>
+                            </div>
+                        </a><a href="/a/47647/Xem-tuoi-boc-mo" class="grid ptb10 db">
+                            <div class="w30">
+                                <div class="w1 pb169 bấmĐc"
+                                     style="background: url(&quot;https://cdn.inevn.com/img/thumb/39355.200x.isij&quot;) center center / cover;">
+                                </div>
+                            </div>
+                            <div class="w70 plr10 vat oh bấmĐc">
+                                <div class="fwb mc1h">Xem tuổi bốc mộ</div>
+                                <div class="pt5 c6 grid fs09">Lạc Hồng Viên - 31/12/2019</div>
+                            </div>
+                        </a><a href="/a/46475/Xe-tham-quan-mien-phi-len-Cong-vien-Tam-linh-Lac-hong-Vien"
+                               class="grid ptb10 db">
+                            <div class="w30">
+                                <div class="w1 pb169 bấmĐc"
+                                     style="background: url(&quot;https://cdn.inevn.com/img/thumb/42855.200x.isij&quot;) center center / cover;">
+                                </div>
+                            </div>
+                            <div class="w70 plr10 vat oh bấmĐc">
+                                <div class="fwb mc1h">
+                                    Xe thăm quan miễn phí lên Công viên Tâm linh Lạc hồng Viên
+                                </div>
+                                <div class="pt5 c6 grid fs09">Lạc Hồng Viên - 29/05/2017</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="dn">
+                        <a href="/a/46716/Dich-vu-trang-diem-tham-my-cho-nguoi-mat-truoc-khi-kham-niem"
+                           class="grid ptb10 db">
+                            <div class="w30">
+                                <div class="w1 pb169 bấmĐc"
+                                     style="background: url(&quot;https://i2.wp.com/lachongvien.vn/wp-content/uploads/2017/05/phu-nu-today-nghe-trang-diem-cho-xac-chet-3(1).jpg&quot;) center center / cover;">
+                                </div>
+                            </div>
+                            <div class="w70 plr10 vat oh bấmĐc">
+                                <div class="fwb mc1h">
+                                    Dịch vụ trang điểm, thẩm mỹ cho người mất trước khi khâm niệm
+                                </div>
+                                <div class="pt5 c6 grid fs09">Lạc Hồng Viên - 11/12/2019</div>
+                            </div>
+                        </a><a href="/a/43488/Dich-vu-cung-gio-Online" class="grid ptb10 db">
+                            <div class="w30">
+                                <div class="w1 pb169 bấmĐc"
+                                     style="background: url(&quot;https://cdn.inevn.com/img/thumb/33382.200x.isij&quot;) center center / cover;">
+                                </div>
+                            </div>
+                            <div class="w70 plr10 vat oh bấmĐc">
+                                <div class="fwb mc1h">Dịch vụ cúng giỗ Online</div>
+                                <div class="pt5 c6 grid fs09">Lạc Hồng Viên - 09/12/2019</div>
+                            </div>
+                        </a><a href="/a/43486/Dich-vu-ban-dat-mo-theo-tung-loai" class="grid ptb10 db">
+                            <div class="w30">
+                                <div class="w1 pb169 bấmĐc"
+                                     style="background: url(&quot;https://cdn.inevn.com/img/thumb/33356.200x.isij&quot;) center center / cover;">
+                                </div>
+                            </div>
+                            <div class="w70 plr10 vat oh bấmĐc">
+                                <div class="fwb mc1h">Dịch vụ bán đất mộ theo từng loại</div>
+                                <div class="pt5 c6 grid fs09">Lạc Hồng Viên - 06/12/2019</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

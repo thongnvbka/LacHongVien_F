@@ -1,0 +1,206 @@
+﻿@model List<WebAppBasite.Models.ProjectModels.Images>
+@using WebAppBasite.Common.Lib
+@using WebAppBasite.App_Code
+@{
+    ViewData["Title"] = "ListImagesByCate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Style{
+    <style>
+        .col-md-4 {
+            width: 32.333333%;
+        }
+
+        .w70 {
+            width: 69%;
+        }
+
+        /*.demoslide {
+            margin-top: 100px;
+            width: 500px;
+            margin: 0 auto;
+            height: 200px;
+            overflow: hidden;
+        }*/
+    </style>
+}
+<div class="pt50 grid w90 mlra">
+    <div class="col-md-8 col-sm-8 col-xs-12 fni pr35">
+        <div class="fwb mc1 pb15 ttu pb10 bb1 bss bcd fs15 fs12-xs lh12">Lạc Hồng Viên tháng 2/2020</div>
+        <div class="pt25 grid pr pa10">
+            <div class="w1 pb169 slideanh oh wsn grid bgso bgpc bgrn bgcfx"
+                 style="background-image: url(@(WebAppBasite.App_Code.PLibs.GetAdminUrl() + Model.FirstOrDefault().main_content));">
+            </div>
+            <div class="pa tl50 w1 tt plr10">
+                <div class="pr">
+                    <div class="pa3 prev fs15 sang pa bấmĐc l0 cf bgc03 brtr3 brbr3">
+                        <o class="iIcon ffi usn bra3 tac fsn vam fs2">navigate_before</o>
+                    </div>
+                    <div class="pa3 next fs15 sang pa bấmĐc r0 cf bgc03 brtl3 brbl3">
+                        <o class="iIcon ffi usn bra3 tac fsn vam fs2">navigate_next</o>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w1 slidecon cat-list mb25 wsn grid " style="overflow-x:auto">
+            @foreach (var item in Model)
+            {
+                <div class="anhcon w20 pa10 hiện o1">
+                    <div class=" w1 pb43 bgrn bgso bgpc"
+                         title="@item.tooltip" style="background-image: url(@(WebAppBasite.App_Code.PLibs.GetAdminUrl() + item.main_content));">
+                    </div>
+                </div>
+            }
+
+
+        </div>
+        <div class="fs12 lh15" style="text-align:justify"></div>
+    </div>
+    <div class="vmlq col-md-4 col-sm-4 col-xs-12 fni tac vat pr plr10">
+        <div class="phầnfix">
+            <div class="pb169 bgsc bgpc bgrn pr" style="background-image: url(&quot;/img/toancanh.jpg&quot;);"></div>
+            <div class="">
+                <div class="grid tac mc1 fs12 fs09-xs pt10 pb5">
+                    <div class="bg1 cf w50 ptb5 brbl3 brtl3 tab bấmĐc">Tin đọc nhiều nhất </div>
+                    <div class="bgcfx c6 w50 ptb5 brtr3 brbr3 tab bấmĐc">Bài viết liên quan </div>
+                </div>
+                <div class="tal">
+                    <div class="">
+                        <a href="/a/49736/cac-ngay-le-dac-biet-tai-chua-Kim-Son-Lac-Hong-nam-2020"
+                           class="grid ptb10 db">
+                            <div class="w30">
+                                <div class="w1 pb169 bấmĐc"
+                                     style="background: url(&quot;https://cdn.inevn.com/img/thumb/43890.200x.isij&quot;) center center / cover;">
+                                </div>
+                            </div>
+                            <div class="w70 plr10 vat oh bấmĐc">
+                                <div class="fwb mc1h">
+                                    Lịch tổ chức các ngày lễ đặc biệt tại chùa Kim Sơn Lạc Hồng năm
+                                    2020
+                                </div>
+                                <div class="pt5 c6 grid fs09">Lạc Hồng Viên - 09/03/2020</div>
+                            </div>
+                        </a><a href="/a/47647/Xem-tuoi-boc-mo" class="grid ptb10 db">
+                            <div class="w30">
+                                <div class="w1 pb169 bấmĐc"
+                                     style="background: url(&quot;https://cdn.inevn.com/img/thumb/39355.200x.isij&quot;) center center / cover;">
+                                </div>
+                            </div>
+                            <div class="w70 plr10 vat oh bấmĐc">
+                                <div class="fwb mc1h">Xem tuổi bốc mộ</div>
+                                <div class="pt5 c6 grid fs09">Lạc Hồng Viên - 31/12/2019</div>
+                            </div>
+                        </a><a href="/a/46475/Xe-tham-quan-mien-phi-len-Cong-vien-Tam-linh-Lac-hong-Vien"
+                               class="grid ptb10 db">
+                            <div class="w30">
+                                <div class="w1 pb169 bấmĐc"
+                                     style="background: url(&quot;https://cdn.inevn.com/img/thumb/42855.200x.isij&quot;) center center / cover;">
+                                </div>
+                            </div>
+                            <div class="w70 plr10 vat oh bấmĐc">
+                                <div class="fwb mc1h">Xe thăm quan miễn phí lên Công viên Tâm linh Lạc hồng Viên</div>
+                                <div class="pt5 c6 grid fs09">Lạc Hồng Viên - 29/05/2017</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+$(function() {
+
+    v: function (i) {
+        lênĐầu();
+        CẦN.db("3c0c958398cae6607d5d04b6a735df99." + i, function (lay) {
+            //cl(lay)
+            var anh = Jd(lay["219791"]),
+                pic = anh["ậ"][0],
+                url = lay["219790"].replace(/(\/)/g, "-");
+            $("#menu").sửaLớp("-bss,-bb1,-bcd");
+            $("#phim").sửaLớp("dn");
+            //CẦN.db("bàiViết."+i,function(){
+            //var a = config("bàiViết."+i);
+            anh["ậ"].map(function (v, vt) {
+                var l = dữLiệu.ảnh(v, "i", "1000px");
+                //cl(l);
+                if (vt == 0) {
+                    $(".slideanh").css({ backgroundImage: "url('" + l + "')" });
+                }
+                $(".slidecon").append(
+                    $("<div>", { class: "anhcon w20 pa10" + (vt == 0 ? " hiện o1" : " o05"), link: l }).append(
+                        $("<div>", { class: " w1 pb43 bgrn bgso bgpc" }).css({ backgroundImage: "url('" + l + "')" })
+                    )
+                ).on("click", ".anhcon", function () {
+                    var t = $(this),
+                        link = t.attr("link");
+                    t.sửaLớp("hiện,o1,-o05").siblings().sửaLớp("-hiện,-o1,o05");
+                    $(".slideanh").css({ backgroundImage: "url('" + link + "')" })
+                })
+            })
+            $(".sang").on("click", function () {
+                var t = $(this),
+                    a = $(this).hasClass("next"),
+                    w = $(".slideanh").outerWidth(),
+                    w1 = $(".anhcon").outerWidth(),
+                    h = $(".slidecon").find(".hiện"),
+                    link;
+                // $(".slideanh").animate({
+                // 	scrollLeft:(a?"+":"-")+"="+w,
+                // })
+                //console.log(h)
+                if (a) {
+                    if (h.next().length) {
+                        h.sửaLớp("-hiện,-o1,o05").next().sửaLớp("hiện,o1,-o05");
+                        link = $(".slidecon").find(".hiện").attr("link");
+                    } else {
+                        $(".slidecon .anhcon:first").sửaLớp("hiện,o1,-o05").siblings().sửaLớp("-hiện,-o1,o05");
+                        link = $(".slidecon .anhcon:first").attr("link");
+                    }
+                    $(".slideanh").css({ backgroundImage: "url('" + link + "')" });
+                } else {
+                    if (h.prev().length) {
+                        h.sửaLớp("-hiện,-o1,o05").prev().sửaLớp("hiện,o1,-o05");
+                        link = $(".slidecon").find(".hiện").attr("link");
+                    } else {
+                        $(".slidecon .anhcon:last").sửaLớp("hiện,o1,-o05").siblings().sửaLớp("-hiện,-o1,o05");
+                        link = $(".slidecon .anhcon:last").attr("link");
+                    }
+                    $(".slideanh").css({ backgroundImage: "url('" + link + "')" });
+                }
+                $(".slidecon").animate({
+                    scrollLeft: (a ? "+" : "-") + "=" + w1,
+                })
+            })
+            $(document).on("swipeleft swiperight", ".slidecon", function (e) {
+                var vtrai = e.type == "swiperight",
+                    tiep = $(".slidecon").find(".hiện"),
+                    t = $(this);
+                if (vtrai) {
+                    t.animate({
+                        scrollLeft: "-=" + tiep.outerWidth()
+                    })
+                } else {
+                    t.animate({
+                        scrollLeft: "+=" + tiep.outerWidth()
+                    })
+                }
+
+            })
+            //})
+            $(".vmlq").on("swiperight swipeleft", function (e) {
+                var a = e.type,
+                    w = $(".thecon4").outerWidth();
+                $(".thecha4").animate({
+                    scrollLeft: (a == "swipeleft" ? "+" : "-") + "=" + w,
+                }, "slow")
+            })
+            //slide ảnh mộ
+            $(".điềuHướng").sửaLớp("mc1,-cf");
+        })
+    }
+    </script>
+}
+

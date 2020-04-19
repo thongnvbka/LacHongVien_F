@@ -1,9 +1,0 @@
-D:\Working\WebCore\WebAppBasite\WebAppBasite.Common\bin\Release\netcoreapp2.2\WebAppBasite.Common.deps.json
-D:\Working\WebCore\WebAppBasite\WebAppBasite.Common\bin\Release\netcoreapp2.2\WebAppBasite.Common.dll
-D:\Working\WebCore\WebAppBasite\WebAppBasite.Common\bin\Release\netcoreapp2.2\WebAppBasite.Common.pdb
-D:\Working\WebCore\WebAppBasite\WebAppBasite.Common\obj\Release\netcoreapp2.2\WebAppBasite.Common.csprojAssemblyReference.cache
-D:\Working\WebCore\WebAppBasite\WebAppBasite.Common\obj\Release\netcoreapp2.2\WebAppBasite.Common.csproj.CoreCompileInputs.cache
-D:\Working\WebCore\WebAppBasite\WebAppBasite.Common\obj\Release\netcoreapp2.2\WebAppBasite.Common.AssemblyInfoInputs.cache
-D:\Working\WebCore\WebAppBasite\WebAppBasite.Common\obj\Release\netcoreapp2.2\WebAppBasite.Common.AssemblyInfo.cs
-D:\Working\WebCore\WebAppBasite\WebAppBasite.Common\obj\Release\netcoreapp2.2\WebAppBasite.Common.dll
-D:\Working\WebCore\WebAppBasite\WebAppBasite.Common\obj\Release\netcoreapp2.2\WebAppBasite.Common.pdb

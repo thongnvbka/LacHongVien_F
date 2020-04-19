@@ -1,0 +1,122 @@
+﻿@model WebAppBasite.Models.NewsViewModels.NewsCategoriesViewModels
+@using WebAppBasite.Common.Lib
+@using WebAppBasite.App_Code
+
+@{
+    ViewData["Title"] = "PostCatalogV";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    @@media (min-width: 992px) {
+        .col-md-8 {
+            width: 65.666667%;
+        }
+
+        .w70 {
+            float: right;
+        }
+        a[href^="javascript"] {
+            display: block !important;
+        }
+    }
+</style>
+<div id="body" class="bgcf">
+    <div class="ptb35 w80 mlra">
+        <div class="fs2 ttu fs13-xs mc1 lh1 tac">@Model.Category.TenDanhMuc</div>
+        <div class="divider green"></div>
+        <div class="col-md-8 col-sm-8 col-xs-12 fni pr35 dib ">
+            <div class="pr listbài">
+                @foreach (var item in Model.Data.Results)
+                {
+                    var link = "/a/" + item.Id + "/" + item.Slug;
+                    <a id="@item.Id" href="@link"
+                       class="tintuc grid ptb15 db">
+                        <div class="w30">
+                            <div class="w1 pb169 bgcfx"
+                                 style="background: url(@(WebAppBasite.App_Code.PLibs.GetAdminUrl() + item.Thumbnail)) center center / cover;">
+                            </div>
+                        </div>
+                        <div class="w60 pl15 vat">
+                            <div class="fs11 fwb fs11-xs lh15">
+                                @item.Title
+                            </div>
+                            <div class="grid">
+                                <div class="fs085 c9 pb10 mr3">Lạc Hồng Viên -</div>
+                                <div class="fs085 c9 pb10">08:24:02 29/05/2017</div>
+                            </div>
+                            <div class="fs1 dn-xs" style="text-align:justify">
+                                @item.Summary
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+            @(await Component.InvokeAsync("Pager", Model.Data))
+        </div>
+        <div class="vmlq col-md-4 col-sm-4 col-xs-12 fni tac vat pr dib">
+            <div class="phầnfix">
+                <div class="pb169 bgsc bgpc bgrn pr" style="background-image: url(&quot;/img/toancanh.jpg&quot;);">
+                </div>
+                <div class="">
+                    <div class="grid tac mc1 fs12 fs09-xs pt10 pb5">
+                        <div class="bg1 cf w50 ptb5 brbl3 brtl3 tab bấmĐc">Tin đọc nhiều nhất </div>
+                        <div class="bgcfx c6 w50 ptb5 brtr3 brbr3 tab bấmĐc">Danh mục liên quan </div>
+                    </div>
+                    <div class="tal">
+                        <div class="">
+                            <a href="/a/49736/cac-ngay-le-dac-biet-tai-chua-Kim-Son-Lac-Hong-nam-2020"
+                               class="grid ptb10 db">
+                                <div class="w30">
+                                    <div class="w1 pb169 bấmĐc"
+                                         style="background: url(&quot;https://cdn.inevn.com/img/thumb/43890.500x.isij&quot;) center center / cover;">
+                                    </div>
+                                </div>
+                                <div class="w70 plr10 vat oh bấmĐc">
+                                    <div class="fwb mc1h">
+                                        Lịch tổ chức các ngày lễ đặc biệt tại chùa Kim Sơn Lạc Hồng
+                                        năm 2020
+                                    </div>
+                                    <div class="pt5 c6 grid fs09">Lạc Hồng Viên - 09/03/2020</div>
+                                </div>
+                            </a><a href="/a/47647/Xem-tuoi-boc-mo" class="grid ptb10 db">
+                                <div class="w30">
+                                    <div class="w1 pb169 bấmĐc"
+                                         style="background: url(&quot;https://cdn.inevn.com/img/thumb/39355.500x.isij&quot;) center center / cover;">
+                                    </div>
+                                </div>
+                                <div class="w70 plr10 vat oh bấmĐc">
+                                    <div class="fwb mc1h">Xem tuổi bốc mộ</div>
+                                    <div class="pt5 c6 grid fs09">Lạc Hồng Viên - 31/12/2019</div>
+                                </div>
+                            </a><a href="/a/46475/Xe-tham-quan-mien-phi-len-Cong-vien-Tam-linh-Lac-hong-Vien"
+                                   class="grid ptb10 db">
+                                <div class="w30">
+                                    <div class="w1 pb169 bấmĐc"
+                                         style="background: url(&quot;http://lachongvien.vn/wp-content/uploads/2017/05/xe%20dua%20don%20khac%20tham%20quan.jpg&quot;) center center / cover;">
+                                    </div>
+                                </div>
+                                <div class="w70 plr10 vat oh bấmĐc">
+                                    <div class="fwb mc1h">
+                                        Xe thăm quan miễn phí lên Công viên Tâm linh Lạc hồng Viên
+                                    </div>
+                                    <div class="pt5 c6 grid fs09">Lạc Hồng Viên - 29/05/2017</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="dn">
+                            <a href="/c/4628/The-gioi-tam-linh"
+                               class="vat oh bấmĐc c6 bra3 tduh ptb10 bgcfx mtb10 fs11 fs09-xs db pl10">
+                                <div>Thế giới tâm linh</div>
+                            </a><a href="/c/4629/Bao-chi-noi-ve-Lac-Hong-Vien"
+                                   class="vat oh bấmĐc c6 bra3 tduh ptb10 bgcfx mtb10 fs11 fs09-xs db pl10">
+                                <div>Báo chí nói về Lạc Hồng Viên</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

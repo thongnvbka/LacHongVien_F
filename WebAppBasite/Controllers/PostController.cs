@@ -1,0 +1,123 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using WebAppBasite.Common;
+using WebAppBasite.DAL.ModulesDAL;
+using WebAppBasite.Models.NewsViewModels;
+using WebAppBasite.Models.ViewModel;
+using WebAppBasite.Ultilities;
+
+namespace WebAppBasite.Controllers
+{
+    public class PostController : Controller
+    {
+        private readonly ILogger _logger;
+        private NewsDAL newDAL = new NewsDAL("News");
+        private DanhMucChungDAL dmDAL = new DanhMucChungDAL("DanhMucChung");
+        private ImagesDAL imgDAL = new ImagesDAL("Images");
+        private ContactDAL ctDAL = new ContactDAL("Contact");
+        private HomeViewModels homeViewModels = new HomeViewModels();
+        private TagsDAL tagDAL = new TagsDAL("Tags");
+        private VideosDAL VideoDAL = new VideosDAL("Videos");
+
+        public PostController(ILogger<PostController> logger)
+        {
+            _logger = logger;
+        }
+        public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult PostCatalog()
+        {
+            return View();
+        }
+        public IActionResult PostCatalogV()
+        {
+            return View();
+        }
+
+        public IActionResult ThuVien()
+        {
+            return View();
+        }
+        public IActionResult DetailsDemo()
+        {
+            return View();
+        }
+
+
+        [Route("c/{id}/{cate_slug}")]
+        public async Task<IActionResult> PostCatalog(int id, string cate_slug, int? pageSize, int page = 1)
+        {
+            if (pageSize == null)
+                pageSize = Ultilities.Common.GetByKey("pageSize").MapInt();
+            //ViewBag.DanhMuc = HomeService.Instance.DanhMucbySlug(cate_slug);
+            var catalog = new NewsCategoriesViewModels();
+            catalog.PageSize = pageSize;
+            catalog.Data = await newDAL.GetListNewsbyCates(id, page, pageSize.MapInt());
+            var resultDm = await dmDAL.GetSignlebyId(id);
+            catalog.Category = resultDm;
+            if (catalog.Data.Results == null || catalog.Data.Results.Count == 0)
+                return RedirectToAction("NotFound", "Common");
+            else
+               if (resultDm.Type == 0)
+            {
+                return View(catalog);
+            }
+            else return View("PostCatalogVertical", catalog);
+               
+        }
+
+
+        [Route("search")]
+        public async Task<IActionResult> Search(string keyWord, int? pageSize, int page = 1)
+        {
+            if (pageSize == null)
+                pageSize = Ultilities.Common.GetByKey("pageSize").MapInt();
+            ViewBag.Keyword = keyWord;
+            var result = new NewsCategoriesViewModels();
+            result.PageSize = pageSize;
+            result.Data = await newDAL.GetListSearching(keyWord, page, pageSize.MapInt());
+            return View(result);
+        }
+        public async Task<IActionResult> PostTags()
+        {
+            homeViewModels.ListTopHot = await newDAL.GetListTophot(5);
+            return View();
+        }
+        [Route("a/{id}/{slug}")]
+        public async Task<IActionResult> Details(int id)
+        {
+            //ViewBag.RelatedNews = await newDAL.GetlistRelatedNews(cate_slug, slug);
+
+            homeViewModels.DetailNews = await newDAL.GetNewsdetail(id);
+            if (homeViewModels.DetailNews == null || homeViewModels.DetailNews.Id == 0)
+            {
+                //string url = Ultilities.Common.GetByKey("domain_fontend") + cate_slug + "/" + slug + ".html";
+                //if (Ultilities.Common.GetByKey("AllowSendmail") == "1")
+                //{
+                //    MailHelper.SendMail(Ultilities.Common.GetByKey("Mailreceived"), "Sao Hà Thành", "Đường dẫn " + url + " không hợp lệ! Vui lòng kiểm tra lại");
+                //}
+                return RedirectToAction("NotFound", "Common");
+            }
+            // home.DetailNews = home.DetailNews ?? new News();
+            // home.ListComment = CommentsService.Instance.GetComments();
+           // homeViewModels.listtagbyId = await tagDAL.GetTagListbyId(slug);
+
+            //model = model ?? new News();
+
+            return View(homeViewModels);
+        }
+        [Route("danh-sach-video.html")]
+        public async Task<IActionResult> ListVideo()
+        {
+           var model = await VideoDAL.GetListVideo();
+            return View(model);
+        }
+
+    }
+}
